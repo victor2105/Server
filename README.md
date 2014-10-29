@@ -1,10 +1,10 @@
 #Protocole d'Application
 
 ## Ajouter un couple
-> requete:
-> ajouter nom surnom
-> reponse:
-> ok | erro:[...]
+###requete:
+> - ajouter nom surnom
+###reponse:
+> - ok | erro:[...]
 
 ## Modifier un surnom
 > requete:
