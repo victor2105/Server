@@ -5,35 +5,54 @@
 > - ajouter nom surnom
 
 >reponse:
-> - ok | erro:[...]
+> - { "nom": "nom", "surnom": "surnom" }
+
+>ou
+> - UnavailableNameException
 
 ## Modifier un surnom
 >requete:
 > - modifier nom surnom newsurnom
 
 >reponse:
-> - ok | erro:[...]
+> - [ { "nom": "nom", "surnoms": [ "surnom1", "surnom2", "newsurnom" ] } ]
 
-# Supprimer un surnom
+>ou
+> - NameNotFoundException
+
+## Supprimer un surnom
 >requete:
 > - supprimer nom surnom
 
 >reponse:
-> - ok | erro:[...]
+> - [ { "nom": "nom", "surnoms": [] } ]
 
-# Lister un ensemble de association nom liste de surnom
+>ou
+> - NameNotFoundException
+
+## Lister un ensemble de association nom liste de surnom
 >requete:
 > - lister [nom1, nom2, ..., nomN]
 
 >reponse:
 > - [
-> -   {nom1, [surnom1, surnom2, ... surnomn]}
-> -   {nom2, [surnom1, surnom2, ... surnomn]}
-> -   {...}
-> -   {nomN, [surnom1, surnom2, ... surnomn]}
+> -   { "nom": "nom1", "surnoms": [surnom1, surnom2, ... surnomn]},
+> -   { "nom": "nom2", "surnoms": [surnom1, surnom2, ... surnomn]},
+> -   {...},
+> -   { "nom": "nomN", "surnoms":[surnom1, surnom2, ... surnomn]}
 > - ]
+
+>ou
+> - NameNotFoundException
 
 
 # Protocole de la sérialisation
 ## Chaine
 > - "id_cmd | parametre1 | parametre2 | ... | parametreN"
+
+#Exceptions
+## Name Not Found Exception
+> - { "error": "Nom n'est pas sur la list" }
+
+## Unavailable Name Exception
+> - { "error": "Nom indisponible" }
