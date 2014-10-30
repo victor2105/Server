@@ -1,13 +1,9 @@
+package Server;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.*;
 
-/**
- * 
- * @author victorhs
- * 
- */
 
 public class Server {
 
@@ -17,6 +13,10 @@ public class Server {
 	private ObjectInputStream objectInputStream;
 	private String clientMessage;
 	
+	
+	// Il faut fare notre control
+	private Control control;
+	
 	private int portNumber;
 	
 	/**
@@ -24,6 +24,7 @@ public class Server {
 	 */
 	public Server(){
 		portNumber = 5000;
+		control = new Control();
 	}
 	
 	
@@ -31,30 +32,35 @@ public class Server {
 	{
 		this.portNumber = portNumber;
 	}
+	
+	public void setControl(Control control) {
+		this.control = control;
+	}
+	
 	public void execulte(){
 		
 		try{
-			//1. creating a server socket
 			serverSocket = new ServerSocket(portNumber);
-			//2. wait for connection
+			
 			System.out.println("Waiting for connection");
 			socket = serverSocket.accept();
 			
 			System.out.println("Connection received by "+socket.getInetAddress());
 			
-			//3. get input and output stream
 			objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
 			objectOutputStream.flush();			
 			objectInputStream = new ObjectInputStream(socket.getInputStream());
 			sendMessage("Diga ai! Meu cliente");
 			
-			//4. communicate
 			do{
 				try{
 					clientMessage = (String) objectInputStream.readObject();
 					System.out.println("Client: \'" + clientMessage + "\'");
+					
 					if(clientMessage.equals("bye")){
 						sendMessage("bye");
+					}else{
+						sendMessage(control.execulte(clientMessage));
 					}
 				}catch(ClassNotFoundException classNotFoundException){
 					System.err.println("Data received in unknown format");

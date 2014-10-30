@@ -1,3 +1,4 @@
+package Model;
 import java.util.ArrayList;
 
 
@@ -12,11 +13,11 @@ public class Nom {
 	}
 	
 	
-	ArrayList<String> getSurNoms(){
+	public ArrayList<String> getSurNoms(){
 		return surNoms;
 	}
 	
-	void addSurNom(String surnom){
+	public void addSurNom(String surnom){
 		boolean estTrouve = false;
 		for(int i=0;i<this.surNoms.size()&&!estTrouve;i++){
 			String sn = this.surNoms.get(i);
@@ -46,7 +47,6 @@ public class Nom {
 				nomString = nomString + ", \"" + surNoms.get(i) + "\"";
 			}
 		}
-		
 		
 		nomString = nomString + " ] }";
 		

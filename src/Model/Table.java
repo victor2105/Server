@@ -1,3 +1,4 @@
+package Model;
 import java.util.ArrayList;
 
 import ExceptionMessages.NameNotFoundException;
@@ -7,7 +8,7 @@ import ExceptionMessages.UnavailableNameException;
 public class Table {
 	private ArrayList<Nom> lines;
 	
-	Table(){
+	public Table(){
 		lines = new ArrayList<Nom>();
 	}
 	
@@ -28,17 +29,34 @@ public class Table {
 		}
 	}
 	
-	public Table getNom(String nom) throws NameNotFoundException, UnavailableNameException{
-		Table table = new Table();
+	private Nom getNomPrivate(String nom) throws NameNotFoundException{
 		
 		for (Nom nom2 : lines) {			
-			if(nom2.equals(nom)){				
-				table.add(nom2);				
-				return table;		
+			if(nom2.equals(nom)){
+				return nom2;
 			}
 		}
 		
 		throw new NameNotFoundException();
+	}
+	
+	public Table getNom(String nom) throws NameNotFoundException, UnavailableNameException{
+		Table table = new Table();
+		
+		table.add(getNomPrivate(nom));
+		
+		return table;
+		
+	}
+	
+	public Table getNom(ArrayList<String> noms) throws NameNotFoundException, UnavailableNameException{
+		Table table = new Table();
+		
+		for (String n : noms) {
+			table.add(getNomPrivate(n));
+		}
+		
+		return table;
 	}
 	
 	@Override
