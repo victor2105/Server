@@ -7,5 +7,4 @@ public class ServerControl {
 		String res = "hello";
 		return res;
 	}
-	
 }
