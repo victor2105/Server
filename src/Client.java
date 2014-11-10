@@ -26,6 +26,17 @@ public class Client {
 			objectOutputStream.flush();
 			objectInputStream = new ObjectInputStream(socket.getInputStream());
 			
+			sendMessage("hello");
+			
+			do{
+				serverResponse = (String) objectInputStream.readUTF();
+				System.out.println("server: "+serverResponse);
+				
+				if(serverResponse.equals("bye")){
+					sendMessage("bye");
+				}
+				
+			}while(!serverResponse.equals("bye"));
 			
 			
 		}catch(IOException ioException){

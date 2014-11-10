@@ -15,7 +15,7 @@ public class Server {
 	
 	
 	// Il faut fare notre control
-	private Control control;
+	private ServerControl control;
 	
 	private int portNumber;
 	
@@ -24,7 +24,7 @@ public class Server {
 	 */
 	public Server(){
 		portNumber = 5000;
-		control = new Control();
+		control = new ServerControl();
 	}
 	
 	
@@ -33,7 +33,7 @@ public class Server {
 		this.portNumber = portNumber;
 	}
 	
-	public void setControl(Control control) {
+	public void setControl(ServerControl control) {
 		this.control = control;
 	}
 	
@@ -62,6 +62,7 @@ public class Server {
 					}else{
 						sendMessage(control.execulte(clientMessage));
 					}
+					
 				}catch(ClassNotFoundException classNotFoundException){
 					System.err.println("Data received in unknown format");
 				}

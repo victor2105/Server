@@ -2,6 +2,10 @@ package ExceptionMessages;
 
 public class ExceptionMessage  extends Exception{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7730894177370826830L;
 	String message;
 	
 	public ExceptionMessage(String msg) {

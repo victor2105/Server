@@ -1,6 +1,6 @@
 package Server;
 
-public class Control {
+public class ServerControl {
 	
 	
 	public String execulte(String req){
