@@ -32,7 +32,6 @@ public class MyControl extends ServerControl{
 			
 			if(obj.getString("type").equals("enregistrer")) enr.execute(noms, parametres);
 			
-			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
