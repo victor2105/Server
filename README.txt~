@@ -7,17 +7,20 @@ Protocole d'Application :
 
 ##Operations :
 
-Enregistrer un nom-surnom
+>>Enregistrer un nom-surnom
 Sert à ajouter un nouveau surnom et un nom associé dans la base de données.
+
 Requête :
 { “type”: “enregistrer”, “parametres”: [“<nom>”,  “<surnom>” ] }
+
 Réponse :
 { “nom”: “<nom>”, “surnoms”: [“<surnom>”]  }
+
 Exceptions :
 NicknameAlreadyUsedException
 UnavailableNameException
 
-Ajouter un surnom
+>>Ajouter un surnom
 Sert à ajouter un surnom à un nom qui est déjà sur la base de données.
 Requête :
 { “type”: “ajouter”, “parametres”: [“<nom>”,  “<surnom2>” ] }

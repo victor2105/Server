@@ -4,6 +4,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.*;
 
+import org.json.JSONObject;
+
 
 public class Server {
 
@@ -37,7 +39,7 @@ public class Server {
 		this.control = control;
 	}
 	
-	public void execulte(){
+	public void execute(){
 		
 		try{
 			serverSocket = new ServerSocket(portNumber);
