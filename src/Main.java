@@ -1,4 +1,5 @@
 import Control.MyControl;
+
 import ExceptionMessages.UnavailableNameException;
 import Model.*;
 import Server.*;
@@ -18,7 +19,7 @@ public class Main {
 		
 //		Test de la table
 //		Table t = new Table();
-//		Nom n1 = new Nom("Henrique Victor","Chat");
+//		Nom n1 = new Nom("Henriqueé Victor","Chat");
 //		Nom n2 = new Nom("Salim Youssef","Bjr");
 //		Nom n3 = new Nom("Germain Edouard","Slt");
 //		Nom n4 = new Nom("Wang Yuqi","ree");

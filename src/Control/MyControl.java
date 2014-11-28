@@ -1,10 +1,8 @@
 package Control;
 
+import java.util.HashMap;
 import java.util.LinkedList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Scanner;
 
 import Model.Table;
 import Server.ServerControl;
@@ -15,15 +13,31 @@ public class MyControl extends ServerControl{
 	
 	Enregistrer enr;
 	Table noms;
+	HashMap<String,Command> commands;
 	
 	public MyControl() {
 		// TODO Auto-generated constructor stub
 		enr = new Enregistrer();
+		commands = new HashMap<>();
+		commands.put("enregistrer",new Enregistrer());
+		commands.put("ajouter",new Ajouter());
+		commands.put("supprimer",new Supprimer());
+		commands.put("modifier",new Modifier());
+		commands.put("lister",new Lister());
 	}
 	
 	@Override
 	public String execute(String req) {
-		try {
+		Scanner sc = new Scanner(req);
+		String type = sc.next();
+		LinkedList<String> parametres = new LinkedList<>();
+		while(sc.hasNext()){
+			parametres.add(sc.next());
+		}
+		
+		Command cmd = commands.get(type);
+		String resp = cmd.execute(noms,parametres);
+		/*try {
 			JSONObject obj=new JSONObject(req);
 			
 			JSONArray parametres = obj.getJSONArray("parametres");
@@ -36,6 +50,7 @@ public class MyControl extends ServerControl{
 			e.printStackTrace();
 		}
 		
-		return req;
+		return req;*/
+		return resp;
 	}
 }

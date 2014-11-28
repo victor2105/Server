@@ -1,16 +1,13 @@
 package Control;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-
-import org.json.JSONArray;
 
 import Model.Table;
 
 public class Lister extends Command{
 
 	@Override
-	public String execute(Table noms, JSONArray parametres) {
+	public String execute(Table noms, LinkedList<String> parametres) {
 		// TODO Auto-generated method stub
 		return null;
 	}

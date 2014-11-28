@@ -6,6 +6,8 @@ import java.net.*;
 
 import org.json.JSONObject;
 
+import Control.MyControl;
+
 
 public class Server {
 
