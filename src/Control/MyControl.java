@@ -15,6 +15,7 @@ public class MyControl extends ServerControl{
 	Table noms;
 	HashMap<String,Command> commands;
 	
+
 	public MyControl() {
 		// TODO Auto-generated constructor stub
 		enr = new Enregistrer();
@@ -43,7 +44,6 @@ public class MyControl extends ServerControl{
 			JSONArray parametres = obj.getJSONArray("parametres");
 			
 			if(obj.getString("type").equals("enregistrer")) enr.execute(noms, parametres);
-			
 			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

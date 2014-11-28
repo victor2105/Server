@@ -30,14 +30,9 @@ public class Table {
 		throw new NameNotFoundException();
 	}
 	
-	/*************Que fait cette methode ?*****************/
-	public Table getNom(String nom) throws NameNotFoundException, UnavailableNameException{
-		Table table = new Table();
-		
-		table.add(getNomPrivate(nom));
-		
-		return table;
-		
+	public Nom getNom(String nom) throws NameNotFoundException, UnavailableNameException{
+		Nom table = getNomPrivate(nom);
+		return table;		
 	}
 	
 	/*************Que fait cette methode ?*****************/

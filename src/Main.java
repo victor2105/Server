@@ -16,7 +16,7 @@ public class Main {
 		server.setControl(myCommand);
 		server.execute();
 		
-		
+
 //		Test de la table
 //		Table t = new Table();
 //		Nom n1 = new Nom("Henriqueé Victor","Chat");
@@ -39,5 +39,4 @@ public class Main {
 //		System.out.println(t);
 		
 	}
-
 }

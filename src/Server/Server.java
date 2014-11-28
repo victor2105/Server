@@ -66,6 +66,7 @@ public class Server {
 					}else{
 						sendMessage(control.execute(clientMessage));
 					}
+
 				}catch(/*ClassNotFound*/Exception classNotFoundException){
 					System.err.println("Data received in unknown format");
 				}
