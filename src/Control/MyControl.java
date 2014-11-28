@@ -8,7 +8,7 @@ import Server.ServerControl;
 public class MyControl extends ServerControl{
 
 	Table noms;
-	JSONParser parser = nez JSONParser();
+//	JSONParser parser = nez JSONParser();
 	
 	@Override
 	public String execute(String req) {

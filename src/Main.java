@@ -8,9 +8,12 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Server server = new Server(50000);
-		
+		Server server = new Server(5000);
+
 		MyControl myControl = new MyControl();
+		server.setControl(myControl);
+		server.execulte();
+		
 		
 		server.setControl(myControl);
 		server.execulte();

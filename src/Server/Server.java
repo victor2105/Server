@@ -50,7 +50,7 @@ public class Server {
 			objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
 			objectOutputStream.flush();			
 			objectInputStream = new ObjectInputStream(socket.getInputStream());
-			sendMessage("Diga ai! Meu cliente");
+			
 			
 			do{
 				try{
@@ -62,8 +62,8 @@ public class Server {
 					}else{
 						sendMessage(control.execute(clientMessage));
 					}
-					
-				}catch(ClassNotFoundException classNotFoundException){
+
+				}catch(/*ClassNotFound*/Exception classNotFoundException){
 					System.err.println("Data received in unknown format");
 				}
 			}while(!clientMessage.equals("bye"));
