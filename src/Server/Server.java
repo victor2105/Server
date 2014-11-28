@@ -60,7 +60,7 @@ public class Server {
 					if(clientMessage.equals("bye")){
 						sendMessage("bye");
 					}else{
-						sendMessage(control.execulte(clientMessage));
+						sendMessage(control.execute(clientMessage));
 					}
 					
 				}catch(ClassNotFoundException classNotFoundException){

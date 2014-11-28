@@ -40,13 +40,9 @@ public class Table {
 		throw new NameNotFoundException();
 	}
 	
-	public Table getNom(String nom) throws NameNotFoundException, UnavailableNameException{
-		Table table = new Table();
-		
-		table.add(getNomPrivate(nom));
-		
-		return table;
-		
+	public Nom getNom(String nom) throws NameNotFoundException, UnavailableNameException{
+		Nom table = getNomPrivate(nom);
+		return table;		
 	}
 	
 	public Table getNom(ArrayList<String> noms) throws NameNotFoundException, UnavailableNameException{
@@ -68,7 +64,7 @@ public class Table {
 			table = table + "\n	" + lines.get(0).toString() + "";
 			
 			for(int i=1;i<lines.size();i++){
-				table = table + ",\n	" + lines.get(0).toString();
+				table = table + ",\n	" + lines.get(i).toString();
 			}
 			
 		}

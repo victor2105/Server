@@ -3,7 +3,7 @@ package Server;
 public class ServerControl {
 	
 	
-	public String execulte(String req){
+	public String execute(String req){
 		String res = "hello";
 		return res;
 	}

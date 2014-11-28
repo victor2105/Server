@@ -8,16 +8,16 @@ import Server.ServerControl;
 public class MyControl extends ServerControl{
 
 	Table noms;
+	JSONParser parser = nez JSONParser();
 	
 	@Override
-	public String execulte(String req) {
+	public String execute(String req) {
 		// TODO Auto-generated method stub
-		String res = "bye";
 		
-		System.out.println(req);
-		
-		
-		return res;
+		return req;
 	}
+	
+	
+	
 	
 }

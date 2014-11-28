@@ -5,9 +5,9 @@ import Server.ServerControl;
 public class HTTPControl extends ServerControl{
 
 	@Override
-	public String execulte(String req) {
+	public String execute(String req) {
 		// TODO Auto-generated method stub
-		return super.execulte(req);
+		return super.execute(req);
 	}
 	
 }
