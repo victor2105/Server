@@ -4,6 +4,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.*;
 
+import org.json.JSONObject;
+
 
 public class Server {
 
@@ -15,7 +17,7 @@ public class Server {
 	
 	
 	// Il faut fare notre control
-	private Control control;
+	private ServerControl control;
 	
 	private int portNumber;
 	
@@ -24,7 +26,7 @@ public class Server {
 	 */
 	public Server(){
 		portNumber = 5000;
-		control = new Control();
+		control = new ServerControl();
 	}
 	
 	
@@ -33,11 +35,11 @@ public class Server {
 		this.portNumber = portNumber;
 	}
 	
-	public void setControl(Control control) {
+	public void setControl(ServerControl control) {
 		this.control = control;
 	}
 	
-	public void execulte(){
+	public void execute(){
 		
 		try{
 			serverSocket = new ServerSocket(portNumber);
@@ -60,7 +62,7 @@ public class Server {
 					if(clientMessage.equals("bye")){
 						sendMessage("bye");
 					}else{
-						sendMessage(control.execulte(clientMessage));
+						sendMessage(control.execute(clientMessage));
 					}
 				}catch(/*ClassNotFound*/Exception classNotFoundException){
 					System.err.println("Data received in unknown format");

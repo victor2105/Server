@@ -2,14 +2,15 @@ package Model;
 import java.util.ArrayList;
 
 
-public class Nom {
+public class Nom implements Comparable<Nom> {
 
 	private String nom;
 	private ArrayList <String> surNoms;
 	
-	public Nom(String nom){
+	public Nom(String nom, String surnom){
 		this.nom = nom;
 		surNoms = new ArrayList<String>();
+		surNoms.add(surnom);
 	}
 	
 	
@@ -64,6 +65,15 @@ public class Nom {
 		// TODO Auto-generated method stub
 		
 		return nom.equals(newNom);
+	}
+
+
+	@Override
+	public int compareTo(Nom n) {
+		int res = nom.compareTo(n.nom);
+		if(res>0) return 1;
+		else if(res<0) return -1;
+		else return 0;
 	}
 	
 }
