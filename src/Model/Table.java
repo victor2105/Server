@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.List;
 import java.util.TreeSet;
 
 import ExceptionMessages.NameNotFoundException;
@@ -36,7 +37,7 @@ public class Table {
 	}
 	
 	/*************Que fait cette methode ?*****************/
-	public Table getNom(TreeSet<String> noms) throws NameNotFoundException, UnavailableNameException{
+	public Table getNom(List<String> noms) throws NameNotFoundException, UnavailableNameException{
 		Table table = new Table();
 		
 		for (String n : noms) {

@@ -12,7 +12,7 @@ public class Enregistrer extends Command{
 
 	@Override
 	public String execute(Table noms, List<String> parametres){
-		
+		String res;
 		ArrayList <String> p = (ArrayList) parametres;
 		
 		String snom = "v", ssurnom="h";
@@ -26,7 +26,7 @@ public class Enregistrer extends Command{
 			noms.add(nom);
 		} catch (UnavailableNameException e) {
 			// TODO Auto-generated catch block
-			System.out.println("hgf");
+			return e.toString();
 		}
 		
 		return noms.toString();
