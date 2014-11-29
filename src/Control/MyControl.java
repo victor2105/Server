@@ -43,16 +43,16 @@ public class MyControl extends ServerControl{
 		while(sc.hasNext()){
 			parametres.add(sc.next());
 		}
-		
-		System.out.println("cmd : "+type);
-		String resp = req;
-		
+
+		String resp = type;
+		System.out.println("type : "+type);
+
 		Command cmd = commands.get(type);
 		try {
 			resp = cmd.execute(noms,parametres);
 			System.out.println(resp);
 		}catch(Exception e){
-			System.out.println("Erro");
+			System.out.println("Erro: "+resp);
 		}
 		return resp;
 	}

@@ -13,7 +13,7 @@ public class Lister extends Command{
 	public String execute(Table noms, List<String> parametres) {
 		// TODO Auto-generated method stub
 		try {
-			Table list = noms.getNom(parametres);
+			Table list = noms.getSurom(parametres);
 			return list.toString();
 		} catch (NameNotFoundException | UnavailableNameException e) {
 			// TODO Auto-generated catch block
