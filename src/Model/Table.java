@@ -33,11 +33,18 @@ public class Table {
 	
 	public Nom getNom(String nom) throws NameNotFoundException, UnavailableNameException{
 		Nom table = getNomPrivate(nom);
-		return table;		
+		return table;	
 	}
 	
-	/*************Que fait cette methode ?*****************/
-	public Table getNom(List<String> noms) throws NameNotFoundException, UnavailableNameException{
+	/**
+	 * 
+	 * @param List <String> noms
+	 * @return Table des surnomes
+	 * @throws NameNotFoundException
+	 * @throws UnavailableNameException
+	 */
+	
+	public Table getSurom(List<String> noms) throws NameNotFoundException, UnavailableNameException{
 		Table table = new Table();
 		
 		for (String n : noms) {
@@ -51,9 +58,14 @@ public class Table {
 	public String toString() {
 		// TODO Auto-generated method stub
 		String table = "[";
-			
+		boolean fist = true;
 		for(Nom nom : lines){
-				table = table + "\n	" + nom.toString() + ",";
+				table = table + "\n	" + nom.toString();
+				if(!fist) {
+					table = table +  ",";
+				}else{
+					fist = false;
+				}
 		}
 			
 		table = table + "\n]";

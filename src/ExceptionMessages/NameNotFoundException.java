@@ -13,7 +13,4 @@ public class NameNotFoundException extends ExceptionMessage {
 		super("Nom n'est pas sur la list");
 	}
 	
-
-	
-	
 }
