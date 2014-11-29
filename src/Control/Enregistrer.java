@@ -1,5 +1,6 @@
 package Control;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class Enregistrer extends Command{
 	@Override
 	public String execute(Table noms, List<String> parametres){
 		
-		/*
+		ArrayList <String> p = (ArrayList) parametres;
 		
 		String snom = "v", ssurnom="h";
 		
@@ -27,7 +28,7 @@ public class Enregistrer extends Command{
 			// TODO Auto-generated catch block
 			System.out.println("hgf");
 		}
-		*/
+		
 		return noms.toString();
 	}
 
