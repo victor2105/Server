@@ -1,6 +1,7 @@
 package Control;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import ExceptionMessages.UnavailableNameException;
 import Model.Nom;
@@ -9,8 +10,12 @@ import Model.Table;
 public class Enregistrer extends Command{
 
 	@Override
-	public String execute(Table noms, LinkedList<String> parametres){
+	public String execute(Table noms, List<String> parametres){
+		
+		/*
+		
 		String snom = "v", ssurnom="h";
+		
 		snom = (String) parametres.get(0);
 		ssurnom = (String) parametres.get(1);
 		
@@ -22,7 +27,7 @@ public class Enregistrer extends Command{
 			// TODO Auto-generated catch block
 			System.out.println("hgf");
 		}
-		
+		*/
 		return noms.toString();
 	}
 

@@ -4,10 +4,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.*;
 
-import org.json.JSONObject;
-
-import Control.MyControl;
-
 
 public class Server {
 
@@ -67,8 +63,10 @@ public class Server {
 						sendMessage(control.execute(clientMessage));
 					}
 
-				}catch(/*ClassNotFound*/Exception classNotFoundException){
+				}catch(Exception classNotFoundException){
 					System.err.println("Data received in unknown format");
+
+					sendMessage("bye");
 				}
 			}while(!clientMessage.equals("bye"));
 			
@@ -88,6 +86,7 @@ public class Server {
 		}
 		
 	}
+	
 	
 	private void sendMessage(String message){
 		try{

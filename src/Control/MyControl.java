@@ -1,5 +1,6 @@
 package Control;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -14,6 +15,7 @@ public class MyControl extends ServerControl{
 	Enregistrer enr;
 	Table noms;
 	HashMap<String,Command> commands;
+	private Scanner sc;
 	
 
 	public MyControl() {
@@ -25,32 +27,33 @@ public class MyControl extends ServerControl{
 		commands.put("supprimer",new Supprimer());
 		commands.put("modifier",new Modifier());
 		commands.put("lister",new Lister());
+		
+		noms = new Table();
+		
 	}
 	
 	@Override
 	public String execute(String req) {
-		Scanner sc = new Scanner(req);
+
+
+		sc = new Scanner(req);
 		String type = sc.next();
-		LinkedList<String> parametres = new LinkedList<>();
+		
+		ArrayList<String> parametres = new ArrayList<>();
 		while(sc.hasNext()){
 			parametres.add(sc.next());
 		}
 		
-		Command cmd = commands.get(type);
-		String resp = cmd.execute(noms,parametres);
-		/*try {
-			JSONObject obj=new JSONObject(req);
-			
-			JSONArray parametres = obj.getJSONArray("parametres");
-			
-			if(obj.getString("type").equals("enregistrer")) enr.execute(noms, parametres);
-			
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		System.out.println("cmd : "+type);
+		String resp = req;
 		
-		return req;*/
+		Command cmd = commands.get(type);
+		try {
+			resp = cmd.execute(noms,parametres);
+			System.out.println(resp);
+		}catch(Exception e){
+			System.out.println("Erro");
+		}
 		return resp;
 	}
 }
