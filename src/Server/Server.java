@@ -62,11 +62,8 @@ public class Server {
 					}else{
 						sendMessage(control.execute(clientMessage));
 					}
-
-				}catch(Exception classNotFoundException){
+				}catch(/*ClassNotFound*/Exception classNotFoundException){
 					System.err.println("Data received in unknown format");
-
-					sendMessage("bye");
 				}
 			}while(!clientMessage.equals("bye"));
 			
@@ -86,7 +83,6 @@ public class Server {
 		}
 		
 	}
-	
 	
 	private void sendMessage(String message){
 		try{
