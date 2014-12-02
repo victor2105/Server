@@ -44,16 +44,20 @@ public class Server {
 			
 			System.out.println("Waiting for connection");
 			socket = serverSocket.accept();
+		}
+		catch(Exception e){
+			System.out.println("Erreur connexion");
+		}
 			
+		try{	
 			System.out.println("Connection received by "+socket.getInetAddress());
 			
 			objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
 			objectOutputStream.flush();			
 			objectInputStream = new ObjectInputStream(socket.getInputStream());
 			
-			
-			do{
 				try{
+					do{
 					clientMessage = (String) objectInputStream.readObject();
 					System.out.println("Client: \'" + clientMessage + "\'");
 					
@@ -62,10 +66,11 @@ public class Server {
 					}else{
 						sendMessage(control.execute(clientMessage));
 					}
+					}while(!clientMessage.equals("bye"));
 				}catch(/*ClassNotFound*/Exception classNotFoundException){
 					System.err.println("Data received in unknown format");
 				}
-			}while(!clientMessage.equals("bye"));
+			
 			
 		}catch(IOException ioException){
 			ioException.printStackTrace();
