@@ -77,8 +77,6 @@ public class Server {
 				}catch(/*ClassNotFound*/Exception classNotFoundException){
 					System.err.println("Data received in unknown format");
 				}
-			
-			
 		}catch(IOException ioException){
 			ioException.printStackTrace();
 		} finally {
