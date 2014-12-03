@@ -49,6 +49,7 @@ public class Server {
 
 			System.out.println("Waiting for connection");
 			socket = serverSocket.accept();
+<<<<<<< HEAD
 
 			System.out.println("Connection received by "
 					+ socket.getInetAddress());
@@ -60,6 +61,22 @@ public class Server {
 
 			do {
 				try {
+=======
+		}
+		catch(Exception e){
+			System.out.println("Erreur connexion");
+		}
+			
+		try{	
+			System.out.println("Connection received by "+socket.getInetAddress());
+			
+			objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+			objectOutputStream.flush();			
+			objectInputStream = new ObjectInputStream(socket.getInputStream());
+			
+				try{
+					do{
+>>>>>>> 7081f9fc0dbf9c7019316e712e6d2d4fc2e69ecc
 					clientMessage = (String) objectInputStream.readObject();
 					System.out.println("Client: \'" + clientMessage + "\'");
 
@@ -68,12 +85,22 @@ public class Server {
 					} else {
 						sendMessage(control.execute(clientMessage));
 					}
+<<<<<<< HEAD
 				} catch (/* ClassNotFound */Exception classNotFoundException) {
 					System.err.println("Data received in unknown format");
 				}
 			} while (!clientMessage.equals("bye"));
 
 		} catch (IOException ioException) {
+=======
+					}while(!clientMessage.equals("bye"));
+				}catch(/*ClassNotFound*/Exception classNotFoundException){
+					System.err.println("Data received in unknown format");
+				}
+			
+			
+		}catch(IOException ioException){
+>>>>>>> 7081f9fc0dbf9c7019316e712e6d2d4fc2e69ecc
 			ioException.printStackTrace();
 		} finally {
 			// 5. closing connection
